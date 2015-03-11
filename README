@@ -1,0 +1,17 @@
+README file for moosicWebGUI
+----------------------------
+
+moosicWebGUI is usually started from the command line. 
+Simply chdir to the directory of the unpacked tarball
+and type 'python moosicWebGUI.py'. For options see the
+manual provided in file moosicwebgui.1 (run command
+'man ./moosicwebgui.1').
+
+The development history is provided in file CHANGES.
+
+moosicWebGUI may be redistributed under the terms of
+the GPL, version 2 (only). See file COPYING for details.
+
+Enjoy
+
+Eckhard

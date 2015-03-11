@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<!-- Template file for moosicWebGUI version 0.8.4 (2005-11-18)
+     (C) 2004, 2005 Eckhard Licher, Frankfurt.
+     This file may be used unter the terms of the GPL version 2.
+     See file COPYING for details.
+-->
+<head>
+    <style type="text/css">
+    <!--
+    body     {background-color:#eeeeee; font-family: Arial, Helvetica, sans-serif; color:#000033; }
+    h1       {font-family: Arial, Helvetica, sans-serif;  color:#000033; font-size:medium; }
+    a        {font-family: Arial, Helvetica, sans-serif;  color:#000033; font-weight:none; }
+    td       {font-family: Arial, Helvetica, sans-serif;  font-weight:none; text-decoration:none; }
+    th       {font-family: Arial, Helvetica, sans-serif;  font-weight:bold; text-decoration:none;
+              color:#ffffff; background-color: #0000aa; }
+    h2       {color:000033; }
+    .thsub   {background-color: #aaaaff; color:#000033; }
+    .menu    {background-color: #ffffff; color:#000033; }
+    .message {background-color: #dddddd; color:#000033; }
+    .main    {background-color: #ffffff; color:#000033; }
+    .pmain   {background-color: #ddddff; }
+    .pkey    {background-color: #ccccff; }
+    .memoh   {background-color: #aaaaee; }
+    .memo    {background-color: #bbbbee; }
+    .pnorm   {background-color: #ddddff; }
+    .phigh   {background-color: #ffffdd; }
+    .frame   {background-color: #000033; }
+    .odd     {background-color: #ddddff; }
+    .even    {background-color: #ffffff; }
+    -->
+    </style>
+    <title>MoosicWebGui</title>
+</head>
+
+<body>
+
+    @@validate
+    @@debug
+
+    <!-- top boxes: general, player, playlist -->
+    <table border="0" width="100%"  cellspacing="0" cellpadding="0">
+    <tr>
+
+    <td valign="top" width="90%" align="center">
+        <!-- central box: player commands -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600">
+        <tr>
+        <td class="frame">
+            <table border="0" cellpadding="1" cellspacing="1" width="100%">
+                <tr>
+                   <!-- player status display -->
+                   <td align="center" colspan="2" class="@@P1@@" width="25%"><small>@@looping</small></td>
+                   <td align="center" colspan="2" class="@@P2@@" width="25%"><small>@@advancing</small></td>
+                   <td align="center" colspan="2" class="@@P3@@" width="25%"><small>@@pause</small></td>
+                   <td align="center" colspan="2" class="pnorm"  width="25%"><small>@@remaining</small></td>
+                </tr>
+                <tr>
+                   <!-- current display -->
+                   <td class="pmain" colspan="8">
+                   <table width="100%" border="0" cellpadding="1" cellspacing="1">
+                   <tr>
+                       <td width="99%" valign="middle">
+                       @@current_track
+                       </td>
+                       <td width="1%"> <br> <br> <br> <br>
+                       </td>
+                   </tr>
+                   </table>
+                </tr>
+                <tr>
+                   <!-- basic player commands -->
+                   <td align="center" class="pkey" width="12%"><a href="skip?@@params&amp;count=-10">-10</a></td>
+                   <td align="center" class="pkey" width="13%"><a href="skip?@@params&amp;count=-1">prev</a></td>
+                   <td align="center" class="pkey" width="12%"><a href="play?@@params">play</a></td>
+                   <td align="center" class="pkey" width="13%"><a href="stop?@@params">stop</a></td>
+                   <td align="center" class="pkey" width="12%"><a href="pause?@@params">pause</a></td>
+                   <td align="center" class="pkey" width="13%"><a href="skip?@@params&amp;count=1">next</a></td>
+                   <td align="center" class="pkey" width="12%"><a href="skip?@@params&amp;count=10">+10</a></td>
+                   <td align="center" class="pkey" width="13%">@@del_current</td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <small><br></small>
+
+        <!-- file search form  -->
+        <table border="0" cellpadding="1" cellspacing="1">
+            <tr><td>@@sform</td><td>@@cform</td></tr>
+        </table>
+
+        <small><br></small>
+
+        <!-- message box -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="message" border="0" cellpadding="0" cellspacing="1" width="100%">
+            <tr>
+                <td valign="top" align="center" width="100%">@@message</td>
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <small><br></small>
+
+        <!-- main content box -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="main" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr><td>@@content</td></tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <small><br></small>
+
+        <small>&copy; 2004, 2005 Eckhard Licher, Frankfurt. moosicWebGUI is Free Software.
+        See file <a href="license?@@params">COPYING</a> for details.</small>
+
+
+    </td>
+
+    <td>&nbsp;&nbsp;&nbsp;</td>
+
+    <td valign="top">
+        <!-- navigation box: general commands -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="menu" border="0" cellpadding="3" cellspacing="0" width="100%">
+            <tr><th align="left">General</th></tr>
+            </table>
+            </td>
+        </tr>
+        <tr><td>
+            <table class="menu" border="0" cellpadding="1" cellspacing="0" width="100%">
+            <tr><td nowrap><a href="refresh?@@params">refresh screen (no op)</a></td></tr>
+            <tr><td nowrap><a href="main?@@params">main view</a></td></tr>
+            <tr><td nowrap><a href="playlist?@@params">browse playlist</a></td></tr>
+            <tr><td nowrap><a href="history?@@params">browse history</a></td></tr>
+            <tr><td nowrap><a href="files?@@params">browse local files</a></td></tr>
+            <tr><td nowrap><a href="tree?@@params">tree view</a></td></tr>
+            <tr><td nowrap><a href="rescan?@@params">re-scan jukebox dir</a></td></tr>
+            <tr><td nowrap>@@exit</td></tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <br>
+
+        <!-- navigation box: playlist commands -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="menu" border="0" cellpadding="3" cellspacing="0" width="100%">
+            <tr><th align="left">Playlist</th></tr>
+            </table>
+            </td>
+        </tr>
+        <tr><td>
+            <table class="menu" border="0" cellpadding="1" cellspacing="0" width="100%">
+            <tr><td nowrap><a href="shuffle?@@params">shuffle</a></td></tr>
+            <tr><td nowrap><a href="sort?@@params">sort</a></td></tr>
+            <tr><td nowrap><a href="reverse?@@params">reverse</a></td></tr>
+            <tr><td nowrap><a href="deldup?@@params">delete duplicates</a></td></tr>
+            <tr><td nowrap><a href="clear?@@params">clear</a></td></tr>
+            <tr><td nowrap><a href="list?@@params">save current playlist</a></td></tr>
+            <tr><td nowrap><a href="load?@@params">load playlist from file</a></td></tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <br>
+
+        <!-- navigation box: memo commands -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="menu" border="0" cellpadding="3" cellspacing="0" width="100%">
+            <tr><th align="left">Memo</th></tr>
+            </table>
+            </td>
+        </tr>
+        <tr><td>
+            <table class="menu" border="0" cellpadding="1" cellspacing="0" width="100%">
+            <tr><td><a href="memo?@@params">add</a></td></tr>
+            <tr><td><a href="list_memo?@@params">show</a></td></tr>
+            <tr><td><a href="clearmemo?@@params">clear</a></td></tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+        <br>
+
+        <!-- documentation box -->
+        <table class="frame" border="0" cellpadding="0" cellspacing="1" width="100%">
+        <tr><td>
+            <table class="menu" border="0" cellpadding="3" cellspacing="0" width="100%">
+            <tr><th align="left">Documentation</th></tr>
+            </table>
+            </td>
+        </tr>
+        <tr><td>
+            <table class="menu" border="0" cellpadding="1" cellspacing="0" width="100%">
+            <tr><td nowrap><a target="book" href="doc/index.html">moosicWebGUI handbook</a></td></tr>
+            <tr><td nowrap><a href="manual?@@params">manual page</a></td></tr>
+            </table>
+            </td>
+        </tr>
+        </table>
+
+
+    </td>
+
+    </tr>
+    </table>
+
+
+</body>
+</html>

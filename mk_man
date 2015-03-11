@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "creating new manpage -- works on my system only :-)"
+echo
+[ hostname != "hombre" ] || exit 1
+rm moosicwebgui.1
+./moosicWebGUI.py -m > moosicwebgui.asc
+~/bin/asciidoc/asciidoc.py -d manpage -b docbook-sgml moosicwebgui.asc
+docbook2man moosicwebgui.sgml
+rm -f manpage.*
+rm -f moosicwebgui.asc moosicwebgui.sgml
+man ./moosicwebgui.1

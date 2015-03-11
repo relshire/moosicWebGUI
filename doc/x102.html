@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Operation
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="The moosicWebGUI handbook
+  "
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Starting the server
+  "
+HREF="x40.html"><LINK
+REL="NEXT"
+TITLE="Tips and tricks
+  "
+HREF="x254.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>The moosicWebGUI handbook</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x40.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x254.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN102"
+>4. Operation</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN104"
+>4.1. Basic player commands</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>-10</DT
+><DD
+><P
+>skip back 10 tracks from history
+    </P
+></DD
+><DT
+>prev</DT
+><DD
+><P
+>skip back one track
+    </P
+></DD
+><DT
+>play</DT
+><DD
+><P
+>play next track from playlist track 
+    </P
+></DD
+><DT
+>stop</DT
+><DD
+><P
+>stop playing current track (if any)
+    </P
+></DD
+><DT
+>pause</DT
+><DD
+><P
+>toggle pause mode on/off
+    </P
+></DD
+><DT
+>next</DT
+><DD
+><P
+>skip forward one track
+    </P
+></DD
+><DT
+>+10</DT
+><DD
+><P
+>skip forward 10 tracks
+    </P
+></DD
+><DT
+>remove</DT
+><DD
+><P
+>remove current track from playlist; this option is available only in looping mode
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN139"
+>4.2. Player modes</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Looping</DT
+><DD
+><P
+>when loop mode is on, songs are returned to the end of the song queue when they finish playing instead of being discarded
+    </P
+></DD
+><DT
+>Advancing</DT
+><DD
+><P
+>when advancing mode is on new songs are going to be played from the queue after the current song is finished
+    </P
+></DD
+><DT
+>Pause</DT
+><DD
+><P
+>when pause mode is on the currently playing song is suspended
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN154"
+>4.3. View modes</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Normal</DT
+><DD
+><P
+>in normal view mode the main content box shows the 10 upcoming tracks from the playlist as well as the last 10 tracks from the history
+    </P
+></DD
+><DT
+>Browse&nbsp;playlist</DT
+><DD
+><P
+>displays at most 250 tracks from the playlist, or, if a search pattern is specified, all tracks from the playlist matching the pattern
+    </P
+></DD
+><DT
+>Browse&nbsp;history</DT
+><DD
+><P
+>displays at most 250 tracks from the history buffer, or, if a search pattern is specified, all tracks from the history buffer matching the pattern
+    </P
+></DD
+><DT
+>Browse&nbsp;local&nbsp;files</DT
+><DD
+><P
+>displays all files and music tracks in a directory in the jukebox subtree
+    </P
+></DD
+><DT
+>Tree&nbsp;view</DT
+><DD
+><P
+>displays all directory manes of the jukebox subtree
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN177"
+>4.4. General menu</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Normal&nbsp;view</DT
+><DD
+><P
+>switch to normal view mode
+    </P
+></DD
+><DT
+>Browse&nbsp;playlist</DT
+><DD
+><P
+>switch to browse playlist mode
+    </P
+></DD
+><DT
+>Browse&nbsp;history</DT
+><DD
+><P
+>switch to browse history mode
+    </P
+></DD
+><DT
+>Browse&nbsp;local&nbsp;files</DT
+><DD
+><P
+>switch to browse local files mode
+    </P
+></DD
+><DT
+>Tree&nbsp;view</DT
+><DD
+><P
+>switch to tree view mode
+    </P
+></DD
+><DT
+>Re-scan&nbsp;jukebox&nbsp;dir</DT
+><DD
+><P
+>re-read all files from jukebox subtree
+    </P
+></DD
+><DT
+>Exit</DT
+><DD
+><P
+>exit moosicWebGUI (requires confirmation)
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN208"
+>4.5. Playlist menu</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Shuffle</DT
+><DD
+><P
+>rearrange the contents of the playlist into a random order
+    </P
+></DD
+><DT
+>Sort</DT
+><DD
+><P
+>rearrange the contents of the playlist into sorted order
+    </P
+></DD
+><DT
+>Reverse</DT
+><DD
+><P
+>rearrange the contents of the playlist into reverse order
+    </P
+></DD
+><DT
+>Delete&nbsp;duplicates</DT
+><DD
+><P
+>remove all duplicate entries from the playlist
+    </P
+></DD
+><DT
+>Clear</DT
+><DD
+><P
+>remove all entries from the playlist (requires confirmation)
+    </P
+></DD
+><DT
+>Save&nbsp;current&nbsp;playlist</DT
+><DD
+><P
+>prepare a page for saving the playlist's content to a file (in ,m3u format) 
+    </P
+></DD
+><DT
+>Load&nbsp;playlist&nbsp;from&nbsp;file</DT
+><DD
+><P
+>load the content of a playlist file (in .m3u format) into the playlist; load options: replace playlist, append to end, prepend to top or mix-in.
+    </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN239"
+>4.6. Memory menu</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Add</DT
+><DD
+><P
+>add current track to special memory playlist
+    </P
+></DD
+><DT
+>Show</DT
+><DD
+><P
+>show content of special memory playlist
+    </P
+></DD
+><DT
+>Clear</DT
+><DD
+><P
+>remove all tracks from special memory playlist (requires confirmation)
+    </P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x40.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x254.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Starting the server</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Tips and tricks</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

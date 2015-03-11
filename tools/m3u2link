@@ -1,0 +1,90 @@
+#!/usr/bin/python
+# -*- coding: Latin-1 -*-
+#
+########################################################################
+#
+#   m3u2link -- create hard links from content of .m3u file
+#
+#   Copyright (C) 2005 Eckhard Licher, Frankfurt, Germany.
+#
+#   This program is free software; you can redistribute it
+#   and/or modify it under the terms of version 2 of the GNU
+#   General Public License as published by the Free Software
+#   Foundation.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License (contained in file COPYING) for more
+#   details.
+#
+########################################################################
+
+
+import sys, os
+from stat import *
+
+progname = "m3u2link"
+
+version  = progname + " 0.1 (2005-12-04)"
+
+def usage():
+    print >> sys.stderr, "%s: usage is %s <m3u-file> <dir>" % (progname, progname)
+
+def main(args):
+    if len(args) != 3:
+        usage()
+        sys.exit(1)
+
+    # make sure args[3] is an empty directory
+    try:
+        entries = os.listdir(args[2])
+    except OSError:
+        # abort on errors
+        print >> sys.stderr, "%s: %s must be a directory" % (progname, args[2])
+        sys.exit(1)
+    if len(entries) != 0:
+        print >> sys.stderr, "%s: directory %s is not empty" % (progname, args[2])
+        sys.exit(1)
+
+    # read in .m3u file
+    try:
+        entries = open(args[1], "r").readlines()
+    except IOError:
+        print >> sys.stderr, "%s: can't read file %s" % (progname, args[1])
+        sys.exit(1)
+
+    # process all entries in .m3u file
+    lines = len(entries)
+    entries = [entry for entry in entries if entry[0] != '#']       # ignore comment lines
+    process = [entry[:-1] for entry in entries if entry[0] == '/']  # process only absolute pathnames
+    success = 0
+    for file in process:
+        pos = file.rfind('/') + 1
+        # calculate destination filename
+        while file[pos:pos+1] in "[0123456789-_ ]":
+            pos += 1
+        dest_fn = "%04d--%s" % (success, file[pos:])
+        # make sure the source file exists and is a regular file
+        try:
+            mode = os.stat(file)[ST_MODE]
+            if not S_ISREG(mode):
+                # It's not a regular file
+                print >> sys.stderr, "%s: can't process %s " % (progname, file)
+        except OSError:
+            print >> sys.stderr, "%s: file %s not found" % (progname, file)
+        # finally create hard link in destination dir
+        try:
+            os.link(file, dest_fn)
+            success += 1
+        except:
+            print >> sys.stderr, "%s: can't hard-link file %s to %s " % (progname, file, dest_fn)
+    res = "%s -- result" % progname
+    print "\n%s\n%s" % (res, len(res) * '-')
+    print "%04d lines in file %s" % (lines, args[1])
+    print "%04d music entries" % (len(entries))
+    print "%04d convertable music entries" % (len(process))
+    print "%04d entries successfully converted\n" % (success)
+
+if __name__ == '__main__':
+    main(sys.argv)

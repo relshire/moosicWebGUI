@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Starting the server
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="The moosicWebGUI handbook
+  "
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Installation
+  "
+HREF="x37.html"><LINK
+REL="NEXT"
+TITLE="Operation
+  "
+HREF="x102.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>The moosicWebGUI handbook</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x37.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x102.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN40"
+>3. Starting the server</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN42"
+>3.1. Starting from the command line</A
+></H2
+><P
+>To be done.
+   </P
+><PRE
+CLASS="PROGRAMLISTING"
+>This is moosicWebGUI version 0.8.5 (2005-11-20)
+ 
+--- The Moosic server isn't running, so it is being started automatically. 
+--- Webserver is trying to connect to port 8000 ... 
+--- Webserver ready on port 8000.
+--- Hosts allowed to connect: ['127.0.0.1'] 
+--- Networks allowed to connect: [] 
+--- Reading jukebox directory '/home/el/devel/prog/py/moosicWebGUI'
+ 
+--- Web server ready, open URL 'http://localhost:8000/' with your browser.
+   </PRE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN46"
+>3.2. Command line options</A
+></H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>-p&nbsp;number,&nbsp;--port=number</DT
+><DD
+><P
+>set the server's portnumber to number 
+    </P
+></DD
+><DT
+>-s,&nbsp;--server-only</DT
+><DD
+><P
+>server-only mode, no browser launched 
+    </P
+></DD
+><DT
+>-j&nbsp;name,&nbsp;--jukbox-dir=name</DT
+><DD
+><P
+>set jukebox directory to name 
+    </P
+></DD
+><DT
+>-a&nbsp;host,&nbsp;--add-host=host</DT
+><DD
+><P
+>add host to list of allowed hosts 
+    </P
+></DD
+><DT
+>-n&nbsp;net,&nbsp;--add-network=net</DT
+><DD
+><P
+>add network to list of allowed networks (use CIDR notation, e.g. 192.168.0.0/24) 
+    </P
+></DD
+><DT
+>-h,&nbsp;--help</DT
+><DD
+><P
+>display help message 
+    </P
+></DD
+><DT
+>-m,&nbsp;--manual</DT
+><DD
+><P
+>display manual page 
+    </P
+></DD
+><DT
+>-d,&nbsp;--debug</DT
+><DD
+><P
+>include debug information in HTML page 
+    </P
+></DD
+><DT
+>-c&nbsp;dir,&nbsp;--config=dir</DT
+><DD
+><P
+>use moosic configuration in directory dir 
+    </P
+></DD
+><DT
+>-t&nbsp;file,&nbsp;--template=file</DT
+><DD
+><P
+>use alternate HTML template file 
+    </P
+></DD
+></DL
+></DIV
+><P
+>Options specified at the command line are evaluated from left to right.
+   </P
+><P
+>When invoked without options, moosicWebGUI serves HTTP requests through port 8000. In case port 8000 is already in use the server searches for an unused port by subsequently incrementing the port number and trying to bind to the port unless option -p is specified. If option -p is specified the port auto-search function is turned off.
+   </P
+><P
+>Unless option -s is specified moosicWebGUI tries to launch the system's web browser with the initial URL pointing to the internal web server.
+   </P
+><P
+>moosicWebGUI can be terminated with a HTTP request to /exit. This exit request can be disabled with option -i.
+   </P
+><P
+>The directory containing music files is assumed to be &dollar;HOME. In case &dollar;HOME is not set /tmp is assumed to be the jukebox directory. It may be explicitly specified by option -j.
+   </P
+><P
+>For security reasons only requests originating from the local machine are being served by default. Other hosts need to be included explicitly to the access control list by means of option -a. Option -a may be used more than once in order to allow access from several hosts. Additionally, entire networks may be specified using option -n; network addresses shall be specified using CIDR format (e.g. 192.168.0.0/24).
+   </P
+><P
+>Incorrect invocation of the program as well as option -h display a brief help message. The full manual page is printed through option -m. In either case program execution terminates regardless of other options possibly specified.
+   </P
+><P
+>If option -d is specified some debug information and a link to the wdg's html validator is included in the generated HTML pages. To validate pages package wdg-html-validator needs to be installed.
+   </P
+><P
+>The moosic configuration is read from the default directory (&dollar;HOME/.moosic/ or /tmp/.moosic/) unless option -c is specified.
+   </P
+><P
+>An alternate template may be specified by means of option -t.
+   </P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN99"
+>3.3. Starting from the GUI</A
+></H2
+><P
+>To be done.
+   </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x37.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x102.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Installation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Operation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

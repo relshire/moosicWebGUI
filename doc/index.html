@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>The moosicWebGUI handbook
+  </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Installation
+  "
+HREF="x37.html"></HEAD
+><BODY
+CLASS="ARTICLE"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="ARTICLE"
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>The moosicWebGUI handbook</A
+></H1
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN5"
+>Eckhard Licher</A
+></H3
+><DIV
+><DIV
+CLASS="ABSTRACT"
+><P
+></P
+><A
+NAME="AEN8"
+></A
+><P
+>This handbook briefly describes the operation of moosicWebGUI. It covers the initial steps for setting up the program as well as normal use. Some tips are given to make moosicWebGUI more useful.
+  </P
+><P
+></P
+></DIV
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="index.html#AEN10"
+>Introduction</A
+></DT
+><DT
+>2. <A
+HREF="x37.html"
+>Installation</A
+></DT
+><DT
+>3. <A
+HREF="x40.html"
+>Starting the server</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="x40.html#AEN42"
+>Starting from the command line</A
+></DT
+><DT
+>3.2. <A
+HREF="x40.html#AEN46"
+>Command line options</A
+></DT
+><DT
+>3.3. <A
+HREF="x40.html#AEN99"
+>Starting from the GUI</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="x102.html"
+>Operation</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="x102.html#AEN104"
+>Basic player commands</A
+></DT
+><DT
+>4.2. <A
+HREF="x102.html#AEN139"
+>Player modes</A
+></DT
+><DT
+>4.3. <A
+HREF="x102.html#AEN154"
+>View modes</A
+></DT
+><DT
+>4.4. <A
+HREF="x102.html#AEN177"
+>General menu</A
+></DT
+><DT
+>4.5. <A
+HREF="x102.html#AEN208"
+>Playlist menu</A
+></DT
+><DT
+>4.6. <A
+HREF="x102.html#AEN239"
+>Memory menu</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="x254.html"
+>Tips and tricks</A
+></DT
+><DT
+>6. <A
+HREF="x257.html"
+>Acknowledgements</A
+></DT
+><DT
+>7. <A
+HREF="x261.html"
+>License</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="x261.html#AEN263"
+>moosicWebGUI</A
+></DT
+><DT
+>7.2. <A
+HREF="x261.html#AEN267"
+>This document</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN10"
+>1. Introduction</A
+></H1
+><P
+>moosicWebGUI is a web GUI based on a simple HTTP server with special built-in commands for controlling the moosic daemon. 
+  </P
+><P
+>The principle of operation of moosicWebGUI is rather simple. The user launches the program either from the command line or from his desktop environment of choice. 
+  </P
+><P
+>moosicWebGUI 
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>starts a simple, customized web server based on the standard Python SimpleHTTPServer module 
+   </P
+></LI
+><LI
+><P
+>tries to connect to a running moosicd and, if necessary, starts a new moosicd server 
+   </P
+></LI
+><LI
+><P
+>launches the system's web browser (via the Python webbrowser module) with the initial URL pointing to the server just started.
+   </P
+></LI
+></UL
+><P
+>For each request sent by the user moosicWebGUI's http request handler does the following: 
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>analyze the request, i.e. extract the command to be performend and additional parameters 
+   </P
+></LI
+><LI
+><P
+>get current status information from the moosic daemon 
+   </P
+></LI
+><LI
+><P
+>execute the request and send one or more commands to moosicd 
+   </P
+></LI
+><LI
+><P
+>get updated status information from moosicd 
+   </P
+></LI
+><LI
+><P
+>create a result page based the command performed using a simple HTML template file 
+   </P
+></LI
+><LI
+><P
+>send result page back to the browser,
+   </P
+></LI
+></UL
+><P
+>The HTTP server implementation only handles GET and HEAD requests. POST requests are not implemented.
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x37.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

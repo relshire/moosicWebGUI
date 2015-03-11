@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "creating new manpage -- works on my system only :-)"
+echo
+[ hostname != "hombre" ] || exit 1
+rm m3u2link.1
+~/bin/asciidoc/asciidoc.py -d manpage -b docbook-sgml m3u2link.asc
+docbook2man m3u2link.sgml
+rm -f manpage.*
+rm -f m3u2link.sgml
+man ./m3u2link.1

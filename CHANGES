@@ -1,0 +1,110 @@
+
+Changes in version 0.9.1 -- 2005-12-04
+------------------------
+- tool m3u2link (create hard links from conent of .m3u file) added
+  (located in directory tools)
+
+
+Changes in version 0.9 -- 2005-12-03
+----------------------
+- after scanning the contents of jukeboxdir some data is stored in
+  the file .moosicWebGUI-dump.dat (located in configdir). Upon startup the
+  content of the dumped data is read. If the stored jukeboxdir and the
+  current jukeboxdir match the initial scan of the jukeboxdir is omitted.
+  This speeds up the program's start-up significantly when dealing with
+  extraordinarily large jukeboxes.
+
+- .moosicWebGUI-memo.m3u moved from jukebox dir to configdir
+  (where it really belongs)
+
+- online handbook started (roughly more than a skeleton currently):
+  - .lyx source file added
+  - links to online handbook and to manual page added to template
+
+- man page improved
+
+- link to wdg html validator (on local machine) added in debug mode,
+  in order to use the validator the wdg-html-validator package
+  (debian/ubuntu) needs to be installed
+
+
+Changes in version 0.8.5 -- 2005-11-20
+------------------------
+- HTML improved:
+  - validates correctly against W3C DTD HTML 4.0 Transitional//EN
+  - minor HTML quirks in genertated HTML fixed
+
+- template reorganized, memo now has its own navigation box
+
+- functions exit, clear, clearmemo and list no longer show their content
+  in the message box but rather in the main box
+
+- new function: re-scan of jukebox directory, template updated accordingly
+
+- minor code clean-up: 0 / 1 changed to False / True where appropriate
+
+- Forest's template replaced with improved version (fab-template.html)
+
+
+Changes in version 0.8.4 -- 2005-11-04
+------------------------
+- minor bug introduced in version 0.8.3 fixed
+
+- added template file fab-template.html (contributed by Forest Bond)
+
+
+Changes in version 0.8.3 -- 2005-11-01
+------------------------
+- new option -i: ignore exit, exit requests via HTTP are ignored,
+  the link to the exit function is created dynamically; template
+  updated acordingly
+
+- memo function implemented: current track is stored in a special
+  memo playlist ($jukeboxdir/.moosicWebGUI-memo.m3u) upon request.
+  New methods: memo, list_memo, clearmemo, clearmemo2: template
+  updated acordingly
+
+- new method list_pl: show content of playlist (.m3u) file
+
+- minor code cleanup
+
+
+Changes in version 0.8.2 -- 2005-10-30
+------------------------
+- all errors during scanning of options are now considered fatal,
+  program terminates
+
+- all warnings now go to sys.stderror
+
+
+Changes in version 0.8.1 -- 2005-10-12
+------------------------
+- patch from Forest Bond implementing options -c, -n and -t included:
+  -c: use alternate config file
+  -n: add natwork spec to new ACL allowed_netorks
+  -t: use alternate template file
+  parsing of moosic option file for valid filename extensions
+
+- support for .m3u files (file format for playlists) added, extension
+  .moo is deprecated (simply rename existing .moo files to .m3u)
+
+- .m3u filenames are scanned during startup and stored globally
+
+- maximum number of displayed entries increased from 100 to 250
+  as version 0.8 is much faster than previous versions
+
+
+Changes in version 0.8 -- 2005-06-03
+----------------------
+
+- dramatic speed-up escpecially when dealing with large Jukeboxes
+  (instead of += all content new content is appended to a list;
+  after completion the list is joined). On my slowest machine (700 MHz)
+  the time for the generation of the tree view of my Jukebox decreased
+  from 15 sec to approx 0.5 sec (!) as reported by /usr/sbin/ab.
+
+- fixed error in do_HEAD (wrong status codes)
+
+- added support for favicon.ico, icon added
+
+

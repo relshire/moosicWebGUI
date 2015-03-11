@@ -1,0 +1,441 @@
+<!--:tabSize=2:indentSize=2:noTabs=true:mode=html:-->
+<!--
+Copyright (C) 2005 Forest Bond
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC
+ "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <style type="text/css">
+    <!--
+body, td, th, h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+th, h1 {
+  font-weight: bold;
+}
+
+table, td, th, tr {
+  border-width: 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+a:link, a:visited, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFFF99;
+    text-decoration: none;
+}
+
+form {
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+ul, li {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+li {
+  list-style-type: none;
+}
+div.layout {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  position: absolute;
+  background-color: #7788BB;
+  color: #000000;
+  border: 2px solid black;
+}
+div.layoutinverse {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  position: absolute;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+div#main {
+  top: 10px;
+  left: 50%;
+  width: 900px;
+  height: 612px;
+  background-color: #333333;
+  margin-left: -450px;
+}
+div#left, div#right {
+  width: 175px;
+  height: 177px;
+}
+div#left {
+  top: 5px;
+  left: 5px;
+}
+div#leftcontent, div#rightcontent {
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  left: 2%;
+  top: 2%;
+}
+div#right {
+  top: 5px;
+  left: 716px;
+}
+div#hud {
+  width: 496px;
+  height: 138px;
+  top: 10px;
+  left: 50%;
+  margin-left: -250px;
+  overflow: hidden;
+}
+div#songinfo {
+  width: 476px;
+  height: 60px;
+  text-align: center;
+  left: 50%;
+  margin-left: -240px;
+  top: 8px;
+  border: 2px solid black;
+  display: table;
+}
+div#songinfocontent {
+  display: table-cell;
+  vertical-align: middle;
+}
+div#status {
+  width: 476px;
+  height: 20px;
+  text-align: center;
+  left: 50%;
+  margin-left: -240px;
+  top: 76px;
+}
+
+/* play control panel */
+div#controls {
+  width: 160px;
+  height: 32px;
+  top: 106px;
+  left: 50%;
+  margin-left: -80px;
+  border: 0px;
+}
+/* control box for each control */
+div.control {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0px;
+  text-align: center;
+  background-color: black;
+}
+div.control:hover {
+  background-color: #FFFF99;
+}
+/* control positioning */
+div#prev { left: 0px; }
+div#pause { left: 64px; }
+div#stop { left: 32px; }
+div#play { left: 96px; }
+div#next { left: 128px; }
+
+div#search {
+  width: 520px;
+  height: 30px;
+  top: 155px;
+  left: 50%;
+  margin-left: -260px;
+  display: table;
+}
+div#searchcontent {
+  width: 518px;
+  height: 28px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+table#searchtable{
+  margin-left: auto;
+  margin-right: auto;
+}
+div#messages, div#content {
+  width: 886px;
+  left: 50%;
+  margin-left: -445px;
+}
+div#messages {
+  top: 188px;
+  height: 18px;
+  text-align: center;
+  display: table;
+}
+div#messagescontent {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+div#content {
+  top: 212px;
+  height: 378px;
+  overflow: auto;
+}
+div#contentcontent {
+  margin: 10px;
+}
+
+div.controlouter {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 2px;
+  top: 2px;
+  overflow: hidden;
+  background-color: #7788BB;
+}
+
+/* container box for each control */
+div.controlcontainer {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 2px;
+  overflow: hidden;
+  background-color: #7788BB;
+}
+
+/* vertical line used in prev, next */
+div.verticalline {
+  position: absolute;
+  top: 0px;
+  background-color: #000000;
+  width: 2px;
+  height: 16px;
+}
+
+/* prev (skip -1) button */
+div#prevtriangle {
+  border-style: solid;
+  border-width: 8px 16px 8px 0px;
+  border-color: #7788BB black #7788BB #7788BB;
+}
+div#prevline { left: 0px; }
+
+/* stop button */
+div#stopbox {
+  background-color: black;
+  border: 1px solid #7788BB;
+  width: 14px;
+  height: 14px;
+}
+
+/* pause button */
+div.pauseline {
+  position: absolute;
+  top: 1px;
+  width: 4px;
+  height: 14px;
+  background-color: black;
+}
+div#pauseline1 { left: 3px; }
+div#pauseline2 { left: 9px; }
+
+/* play button */
+div#playtriangle {
+  border-style: solid;
+  border-width: 8px 0px 8px 16px;
+  border-color: #7788BB #7788BB #7788BB black;
+}
+
+/* next button (skip track */
+div#nexttriangle {
+  border-style: solid;
+  border-width: 8px 0px 8px 16px;
+  border-color: #7788BB #7788BB #7788BB black;
+}
+div#nextline { left: 14px; }
+
+div#copyright {
+  position: absolute;
+  width: 786px;
+  height: 16px;
+  left: 50%;
+  top: 595px;
+  margin-left: -393px;
+  text-align: center;
+  font-size: 9px;
+  color: black;
+}
+div#debug {
+  position: absolute;
+  top: 650px;
+  text-align: center;
+  width: 100%;
+}
+
+/* moosicWebGUI specific classes */
+.odd { background-color: #7788BB; }
+.even { background-color: #8899CC; }
+.thsub { font-weight: bold; }
+-->
+    </style>
+    <title>moosicWebGUI</title>
+  </head>
+  <body>
+    <div id="main" class="layoutinverse">
+      <div id="left" class="layout">
+        <div id="leftcontent">
+          <h1>General</h1>
+          <ul>
+            <li><a href="refresh?@@params">refresh screen (no op)</a></li>
+            <li><a href="main?@@params">main view</a></li>
+            <li><a href="playlist?@@params">browse playlist</a></li>
+            <li><a href="history?@@params">browse history</a></li>
+            <li><a href="files?@@params">browse local files</a></li>
+            <li><a href="tree?@@params">tree view</a></li>
+            <li>@@exit</li>
+          </ul>
+        </div>
+      </div>
+      <div id="hud" class="layout">
+        <div id="songinfo" class="layoutinverse">
+          <div id="songinfocontent">
+            @@current_track
+          </div>
+        </div>
+        <div id="status" class="layout">
+@@looping&nbsp;|&nbsp;@@advancing&nbsp;|&nbsp;@@pause&nbsp;|&nbsp;@@remaining
+        </div>
+        <div id="controls" class="layout">
+          <a href="skip?@@params&count=-1">
+            <div id="prev" class="control">
+              <div class="controlouter">
+                <div class="controlcontainer">
+                  <div id="prevline" class="verticalline">
+                  </div>
+                  <div id="prevtriangle">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="stop?@@params">
+            <div id="stop" class="control">
+              <div class="controlouter">
+                <div class="controlcontainer">
+                  <div id="stopbox">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="pause?@@params">
+            <div id="pause" class="control">
+              <div class="controlouter">
+                <div class="controlcontainer">
+                  <div id="pauseline1" class="pauseline">
+                  </div>
+                  <div id="pauseline2" class="pauseline">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="play?@@params">
+            <div id="play" class="control">
+              <div class="controlouter">
+                <div class="controlcontainer">
+                  <div id="playtriangle">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="skip?@@params&count=1">
+            <div id="next" class="control">
+              <div class="controlouter">
+                <div class="controlcontainer">
+                  <div id="nexttriangle">
+                  </div>
+                  <div id="nextline" class="verticalline">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="right" class="layout">
+        <div id="rightcontent">
+          <h1>Playlist</h1>
+          <ul>
+            <li><a href="shuffle?@@params">shuffle</a></li>
+            <li><a href="sort?@@params">sort</a></li>
+            <li><a href="reverse?@@params">reverse</a></li>
+            <li><a href="deldup?@@params">delete duplicates</a></li>
+            <li><a href="clear?@@params">clear</a></li>
+            <li><a href="list?@@params">save current playlist</a></li>
+            <li><a href="load?@@params">load playlist from file</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="search" class="layoutinverse">
+        <div id="searchcontent">
+          <table id="searchtable">
+            <tr>
+              <td>@@sform</td>
+              <td>@@cform</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="messages" class="layout">
+        <div id="messagescontent">
+          @@message
+        </div>
+      </div>
+      <div id="content" class="layout">
+        <div id="contentcontent">
+          @@content
+        </div>
+      </div>
+      <div id="copyright" class="layoutinverse">
+        moosicWebGUI &copy; 2004, 2005 Eckhard Licher.
+        This template &copy; 2005 Forest Bond.
+        Both are available under the terms of the
+        <a href="http://www.gnu.org/copyleft/gpl.html">
+        GNU General Public License
+        </a>
+      </div>
+    </div>
+    <div id="debug">
+      @@debug
+    </div>
+  </body>
+</html>
+
